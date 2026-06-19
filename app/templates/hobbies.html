@@ -2,12 +2,8 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:title" content="Personal Portfolio">
-    <meta property="og:description" content="My Personal Portfolio">
-    <meta property="og:url" content="{{ url }}">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -35,11 +31,17 @@
         </div>
     </header>
 
-    <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/logo.jpg">
-        </div>
+    <section class="hobbies-page">
         <h1>{{ title }}</h1>
-    </div>
+        <div class="hobbies-list">
+            {% for hobby in hobbies %}
+            <div class="hobby-item">
+                <h2>{{ hobby.name }}</h2>
+                <p>{{ hobby.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
 </body>
+
 </html>
