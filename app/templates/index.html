@@ -31,10 +31,49 @@
     </header>
 
     <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/logo.jpg">
+        <div class="carousel">
+            <div class="carousel-inner">
+                {% for photo in photos %}
+                <div class="carousel-slide {% if loop.first %}active{% endif %}">
+                    <img src="./static/img/{{ photo }}" alt="Photo {{ loop.index }}">
+                </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
+            <div class="carousel-dots">
+                {% for photo in photos %}
+                <span class="dot {% if loop.first %}active{% endif %}" onclick="goToSlide({{ loop.index0 }})"></span>
+                {% endfor %}
+            </div>
         </div>
         <h1>{{ title }}</h1>
     </div>
 </body>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function changeSlide(direction) {
+        slides[currentSlide].classList.remove('active');
+        dots[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+
+    function goToSlide(index) {
+        slides[currentSlide].classList.remove('active');
+        dots[currentSlide].classList.remove('active');
+        currentSlide = index;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+
+    // auto-rotate every 4 seconds
+    setInterval(() => changeSlide(1), 4000);
+</script>
+
 </html>
