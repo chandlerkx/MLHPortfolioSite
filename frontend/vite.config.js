@@ -12,7 +12,7 @@ export default defineConfig({
     })
   ],
   build: {
-    outDir: '../app',
+    outDir: process.env.VERCEL ? 'dist' : '../app',
     emptyOutDir: false,
     rollupOptions: {
       output: {

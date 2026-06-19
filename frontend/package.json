@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && mv ../app/index.html ../app/templates/index.html",
+    "build:flask": "vite build && mv ../app/index.html ../app/templates/index.html",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
