@@ -77,6 +77,27 @@ body {
     height: 200px;
 }
 
+/* Map Section */
+.map-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.map-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#map {
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .banner {
     padding: 20px 0px 50px 0px;
     height: 150px;

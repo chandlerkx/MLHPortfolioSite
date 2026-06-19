@@ -13,6 +13,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
@@ -36,5 +37,31 @@
         </div>
         <h1>{{ title }}</h1>
     </div>
+
+    <section class="map-section">
+        <h2>Places I've Been</h2>
+        <div id="map"></div>
+    </section>
 </body>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([30, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    var locations = [
+        { lat: 40.7128, lng: -74.0060, name: "New York City" },
+        { lat: 48.8566, lng: 2.3522, name: "Paris" },
+        { lat: 35.6762, lng: 139.6503, name: "Tokyo" },
+        { lat: 37.7749, lng: -122.4194, name: "San Francisco" },
+        { lat: 51.5074, lng: -0.1278, name: "London" }
+    ];
+
+    locations.forEach(function(loc) {
+        L.marker([loc.lat, loc.lng]).addTo(map).bindPopup(loc.name);
+    });
+</script>
+
 </html>
