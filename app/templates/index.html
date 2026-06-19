@@ -36,5 +36,18 @@
         </div>
         <h1>{{ title }}</h1>
     </div>
+
+    <section class="hobbies-section">
+        <h2>My Hobbies</h2>
+        <div class="hobbies-grid">
+            {% for hobby in hobbies %}
+            <div class="hobby-card">
+                <img src="./static/img/{{ hobby.image }}" alt="{{ hobby.name }}">
+                <h3>{{ hobby.name }}</h3>
+                <p>{{ hobby.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
 </body>
 </html>
