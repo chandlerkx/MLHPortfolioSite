@@ -36,5 +36,16 @@
         </div>
         <h1>{{ title }}</h1>
     </div>
+
+    <section class="experience-section">
+        <h2>Work Experience</h2>
+        {% for exp in experiences %}
+        <div class="experience-card">
+            <h3>{{ exp.title }}</h3>
+            <p class="exp-company">{{ exp.company }} &middot; {{ exp.duration }}</p>
+            <p>{{ exp.description }}</p>
+        </div>
+        {% endfor %}
+    </section>
 </body>
 </html>
