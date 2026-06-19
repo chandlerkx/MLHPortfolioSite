@@ -1,147 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:title" content="Personal Portfolio">
-    <meta property="og:description" content="My Personal Portfolio">
-    <meta property="og:url" content="{{ url }}">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
-    <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
-    <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
-    <title>{{ title }}</title>
-</head>
-
-<body>
-    <header class="nav-bar">
-        <div class="nav-content">
-            <a href="/">
-                <div class="nav-logo">
-                    <img src="./static/img/logo.svg" />
-                </div>
-            </a>
-            <nav class="nav-links">
-                {% for page in pages %}
-                <a href="{{ page.url }}">{{ page.name }}</a>
-                {% endfor %}
-            </nav>
-        </div>
-    </header>
-
-    <div class="profile">
-        <div class="carousel">
-            <div class="carousel-inner">
-                {% for photo in photos %}
-                <div class="carousel-slide {% if loop.first %}active{% endif %}">
-                    <img src="./static/img/{{ photo }}" alt="Photo {{ loop.index }}">
-                </div>
-                {% endfor %}
-            </div>
-            <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
-            <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
-            <div class="carousel-dots">
-                {% for photo in photos %}
-                <span class="dot {% if loop.first %}active{% endif %}" onclick="goToSlide({{ loop.index0 }})"></span>
-                {% endfor %}
-            </div>
-        </div>
-        <h1>{{ title }}</h1>
-    </div>
-
-    <section class="about-section">
-        <h2>About Me</h2>
-        <p>Hey! I'm a software engineer and MLH Fellow who loves building things and learning new technologies. When I'm not coding, you can find me exploring new places, trying out different cuisines, or working on side projects. I'm passionate about creating tools that make people's lives easier and I'm always looking for the next challenge to tackle.</p>
-    </section>
-
-    <section class="content-section">
-        <h2>Work Experience</h2>
-        {% for exp in experiences %}
-        <div class="content-card">
-            <h3>{{ exp.title }}</h3>
-            <p class="subtitle">{{ exp.company }} &middot; {{ exp.duration }}</p>
-            <p>{{ exp.description }}</p>
-        </div>
-        {% endfor %}
-    </section>
-
-    <section class="content-section">
-        <h2>Education</h2>
-        {% for edu in education %}
-        <div class="content-card">
-            <h3>{{ edu.school }}</h3>
-            <p class="subtitle">{{ edu.degree }} &middot; {{ edu.duration }}</p>
-        </div>
-        {% endfor %}
-    </section>
-
-    <section class="hobbies-section">
-        <h2>My Hobbies</h2>
-        <div class="hobbies-grid">
-            {% for hobby in hobbies %}
-            <div class="hobby-card">
-                <img src="./static/img/{{ hobby.image }}" alt="{{ hobby.name }}">
-                <h3>{{ hobby.name }}</h3>
-                <p>{{ hobby.description }}</p>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-
-    <section class="map-section">
-        <h2>Places I've Been</h2>
-        <div id="map"></div>
-    </section>
-</body>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.dot');
-
-    function changeSlide(direction) {
-        if (!slides.length) return;
-        slides[currentSlide].classList.remove('active');
-        dots[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + direction + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
-
-    function goToSlide(index) {
-        if (!slides.length) return;
-        slides[currentSlide].classList.remove('active');
-        dots[currentSlide].classList.remove('active');
-        currentSlide = index;
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
-
-    setInterval(() => changeSlide(1), 4000);
-
-    var map = L.map('map').setView([30, 0], 2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    var locations = [
-        { lat: 40.7128, lng: -74.0060, name: "New York City" },
-        { lat: 48.8566, lng: 2.3522, name: "Paris" },
-        { lat: 35.6762, lng: 139.6503, name: "Tokyo" },
-        { lat: 37.7749, lng: -122.4194, name: "San Francisco" },
-        { lat: 51.5074, lng: -0.1278, name: "London" }
-    ];
-
-    locations.forEach(function(loc) {
-        L.marker([loc.lat, loc.lng]).addTo(map).bindPopup(loc.name);
-    });
-</script>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+    <script type="module" crossorigin src="/static/assets/index-o8pEHwK2.js"></script>
+    <link rel="stylesheet" crossorigin href="/static/assets/index-DAI-sr9p.css">
+    <script type="module">import'data:text/javascript,if(!import.meta.resolve)throw Error("import.meta.resolve not supported")';import.meta.url;import("_").catch(()=>1);(async function*(){})().next();window.__vite_is_modern_browser=true</script>
+    <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+    <script nomodule crossorigin id="vite-legacy-polyfill" src="/static/assets/polyfills-legacy--xOn90sm.js"></script>
+    <script nomodule crossorigin id="vite-legacy-entry" data-src="/static/assets/index-legacy-3kRuNjGb.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+  </body>
 </html>
