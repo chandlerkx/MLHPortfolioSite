@@ -322,6 +322,33 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* About Photos */
+.about-photos {
+  margin-top: 2rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.about-photo {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-photo:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent);
+}
+
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
