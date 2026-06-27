@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Briefcase, GraduationCap, Gamepad2, MapPin, User } from 'lucide-react';
+import { Briefcase, GraduationCap, Gamepad2, MapPin, User, Camera } from 'lucide-react';
+import img1 from './assets/IMG_2402.jpg';
+import img2 from './assets/IMG_2488.jpg';
+import img3 from './assets/IMG_2493.jpg';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -48,7 +51,7 @@ function App() {
           hobbies: [
             { name: "Skateboarding", description: "Cruising the streets and trying new tricks at the local park." },
             { name: "Volleyball", description: "Playing setter for my intramural team. Always down for a beach game." },
-            { name: "Gaming", description: "Currently grinding ranked in Valorant. I play a mix of FPS and RPGs." }
+            { name: "Gaming", description: "Currently grinding ranked in Valorant. I mostly play FPS games." }
           ],
           locations: [
             { lat: 39.3999, lng: -8.2245, name: "Portugal" },
@@ -127,6 +130,15 @@ function App() {
                         </div>
                       ))}
                     </div>
+
+                    <div className="about-photos mt-6">
+                      <h3 className="section-subtitle"><Camera className="inline-icon" /> Snapshots</h3>
+                      <div className="photo-grid">
+                        <img src={img1} alt="About me 1" className="about-photo" />
+                        <img src={img2} alt="About me 2" className="about-photo" />
+                        <img src={img3} alt="About me 3" className="about-photo" />
+                      </div>
+                    </div>
                   </section>
                 )}
 
@@ -154,7 +166,6 @@ function App() {
                     <div className="hobbies-grid">
                       {data.hobbies.map((hobby, idx) => (
                         <div key={idx} className="hobby-card">
-                          <div className="hobby-image-placeholder"></div>
                           <div className="hobby-info">
                             <h4>{hobby.name}</h4>
                             <p>{hobby.description}</p>
