@@ -36,7 +36,7 @@ education = [
 
 hobbies = [
     {"name": "Skateboarding", "description": "Cruising the streets and trying new tricks at the local park."},
-    {"name": "Volleyball", "description": "Playing setter for my intramural team. Always down for a beach game."},
+    {"name": "Volleyball", "description": "Playing Middle Blocker for my intramural team. Always down for a indoor court game! "},
     {"name": "Gaming", "description": "Currently grinding ranked in Valorant. I play a mix of FPS and RPGs."}
 ]
 
