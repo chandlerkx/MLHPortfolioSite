@@ -50,7 +50,7 @@ function App() {
           ],
           hobbies: [
             { name: "Skateboarding", description: "Cruising the streets and trying new tricks at the local park." },
-            { name: "Volleyball", description: "Playing setter for my intramural team. Always down for a beach game." },
+            { name: "Volleyball", description: "Playing Middle Blocker for my intramural team. Always down for a indoor court game! " },
             { name: "Gaming", description: "Currently grinding ranked in Valorant. I mostly play FPS games." }
           ],
           locations: [
@@ -116,11 +116,11 @@ function App() {
                   <section className="animate-fade-in content-section">
                     <h2>Hello, I'm Chandler!</h2>
                     <p className="bio-text">
-                      I'm a passionate Software Engineer currently studying Computer Science at the University of Western Ontario. 
-                      I enjoy building scalable backend systems, exploring cloud development, and creating seamless user experiences. 
+                      I'm a passionate Software Engineer currently studying Computer Science at the University of Western Ontario.
+                      I enjoy building scalable backend systems, exploring cloud development, and creating seamless user experiences.
                       Outside of coding, you'll probably find me skateboarding, hitting the volleyball courts, or grinding Valorant.
                     </p>
-                    
+
                     <div className="education-container mt-6">
                       <h3 className="section-subtitle"><GraduationCap className="inline-icon" /> Education</h3>
                       {data.education.map((edu, idx) => (
