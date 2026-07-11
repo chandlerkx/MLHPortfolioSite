@@ -26,8 +26,13 @@ class TimelinePost(Model):
     class Meta:
         database = mydb
 
-mydb.connect()
-mydb.create_tables([TimelinePost])
+try:
+    mydb.connect()
+    mydb.create_tables([TimelinePost])
+    print("Database connected successfully!")
+except Exception as e:
+    print(f"Warning: Could not connect to database: {e}")
+    print("Timeline post features will not be available.")
 
 experiences = [
     {
