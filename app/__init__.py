@@ -87,6 +87,10 @@ locations = [
 def index():
     return render_template('index.html')
 
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title="Timeline")
+
 @app.route('/api/portfolio')
 def portfolio_data():
     return jsonify({
