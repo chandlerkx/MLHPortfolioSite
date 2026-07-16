@@ -26,7 +26,18 @@ echo "📦 Updating Python dependencies..."
 source "$VENV_DIR/bin/activate"
 pip install -r requirements.txt
 
-# 4. Restart myportfolio service
+# 4. Run the test suite before deploying
+echo "🧪 Running test suite..."
+TESTING=true python -m unittest discover -v tests
+
+if [ $? -ne 0 ]; then
+    echo "❌ Tests failed! Aborting deployment to prevent production downtime."
+    exit 1
+fi
+
+echo "✅ All tests passed!"
+
+# 5. Restart myportfolio service
 echo "⚡ Restarting myportfolio service..."
 sudo systemctl restart myportfolio
 
