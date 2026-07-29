@@ -1,8 +1,11 @@
 .venv
+venv
+env
 __pycache__
 *.pyc
 .env
 python3-virtualenv
 flask.sqlite
-.DS_Store*.HEIC
+.DS_Store
+*.HEIC
 *.heic

@@ -27,7 +27,7 @@ class TestApp(unittest.TestCase):
         response = self.client.get('/')
         assert response.status_code == 200
         html = response.get_data(as_text=True)
-        assert '<title>frontend</title>' in html
+        assert '<title>Chandler Xie - Portfolio</title>' in html
 
     def test_home_has_root_div(self):
         """Test that the home page contains the root div for the React app."""
